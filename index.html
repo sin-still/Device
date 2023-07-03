@@ -32,6 +32,8 @@
 <!-- 로컬 CSS -->
 <link rel='stylesheet' href='./css/style.css'/>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <!-- 로컬 js -->
 <script src='./js/script.js' defer></script>
 
@@ -58,12 +60,19 @@
 </div>
 
 <script>
-    let ratio = window.devicePixelRatio;
+    /* let ratio = window.devicePixelRatio;
     console.log(ratio)
     if(ratio >= 2){
         document.querySelector('.pc').style.display='none';
     }else{
         document.querySelector('.mobile').style.display='none';
+    } */
+    if (Modernizr.touchevents) {
+    // supported
+    document.querySelector('.pc').style.display='none';
+    } else {
+    // not-supported
+    document.querySelector('.mobile').style.display='none';
     }
 </script>
 </body>
